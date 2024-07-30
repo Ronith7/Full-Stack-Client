@@ -24,7 +24,7 @@ function Post() {
   const addComment = () => {
     axios
       .post(
-        "https://full-stack-rolex-d0e7f0626856.herokuapp.com/",
+        "https://full-stack-rolex-d0e7f0626856.herokuapp.com/comments",
         {
           commentBody: newComment,
           PostId: id,
