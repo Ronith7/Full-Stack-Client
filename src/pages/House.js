@@ -17,7 +17,7 @@ export default function House() {
       if(!localStorage.getItem("accessToken")){
         navigate('/login')
       }else{
-      axios.get("http://localhost:3001/posts",
+      axios.get("https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts",
         {headers: {accessToken: localStorage.getItem("accessToken")}}
       ).then((response)=>{
         setListOfPosts(response.data.listOfPosts);
@@ -29,7 +29,7 @@ export default function House() {
     }, []);
 
     const likeAPost = (postId) =>{
-      axios.post("http://localhost:3001/likes", 
+      axios.post("https://full-stack-rolex-d0e7f0626856.herokuapp.com/likes", 
         {PostId: postId},
         {headers: {accessToken: localStorage.getItem("accessToken")}}
       ).then((response)=>{

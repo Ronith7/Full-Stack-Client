@@ -12,11 +12,11 @@ function Post() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/posts/byId/${id}`).then((response) => {
+    axios.get(`https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts/byId/${id}`).then((response) => {
       setPostObject(response.data);
     });
 
-    axios.get(`http://localhost:3001/comments/${id}`).then((response) => {
+    axios.get(`https://full-stack-rolex-d0e7f0626856.herokuapp.com/comments/${id}`).then((response) => {
       setComments(response.data);
     });
   }, []);
@@ -24,7 +24,7 @@ function Post() {
   const addComment = () => {
     axios
       .post(
-        "http://localhost:3001/comments",
+        "https://full-stack-rolex-d0e7f0626856.herokuapp.com/",
         {
           commentBody: newComment,
           PostId: id,
@@ -51,7 +51,7 @@ function Post() {
 
   const deleteComment = (id) => {
     axios
-      .delete(`http://localhost:3001/comments/${id}`, {
+      .delete(`https://full-stack-rolex-d0e7f0626856.herokuapp.com/comments/${id}`, {
         headers: { accessToken: localStorage.getItem("accessToken") },
       })
       .then(() => {
@@ -64,7 +64,7 @@ function Post() {
   };
 
   const deletepost = (id) =>{
-    axios.delete(`http://localhost:3001/posts/${id}`,{
+    axios.delete(`https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts/${id}`,{
       headers: { accessToken: localStorage.getItem("accessToken") },
     }).then(()=>{
       navigate("/");
@@ -74,7 +74,7 @@ function Post() {
   const editPost = (option) => {
     if(option === "title" ){
       let newTitle = prompt("Enter New Title:");
-      axios.put("http://localhost:3001/posts/title",
+      axios.put("https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts/title",
         {newTitle: newTitle, id: id,},
       {
         headers: { accessToken: localStorage.getItem("accessToken") },
@@ -83,7 +83,7 @@ function Post() {
       setPostObject({...postObject,title: newTitle})
     }else{
       let newPostText = prompt("Enter New Text:");
-      axios.put("http://localhost:3001/posts/postText",
+      axios.put("https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts/postText",
       {newText: newPostText, id: id,},
       {
         headers: { accessToken: localStorage.getItem("accessToken") },

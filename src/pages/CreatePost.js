@@ -26,7 +26,7 @@ export default function CreatePost() {
     });
 
     const onSubmit = (data) => {
-        axios.post("http://localhost:3001/posts",data,
+        axios.post("https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts",data,
           {headers: {accessToken: localStorage.getItem("accessToken")}}).then((response)=>{
         navigate("/");
       });

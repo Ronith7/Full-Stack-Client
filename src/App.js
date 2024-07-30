@@ -18,7 +18,7 @@ function App() {
 
   useEffect(()=>{
     if (localStorage.getItem('accessToken')) {
-      axios.get('http://localhost:3001/auth/auth/', {
+      axios.get('https://full-stack-rolex-d0e7f0626856.herokuapp.com/auth/auth/', {
         headers:{
         accessToken: localStorage.getItem('accessToken'),
       },

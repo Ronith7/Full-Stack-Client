@@ -12,12 +12,12 @@ function Profile() {
     const { authState } = useContext(AuthContext);
 
     useEffect(()=>{
-        axios.get( `http://localhost:3001/auth/basicinfo/${id}`)
+        axios.get( `https://full-stack-rolex-d0e7f0626856.herokuapp.com/auth/basicinfo/${id}`)
         .then((response)=>{
             setUsername(response.data.username);
         });
 
-        axios.get(`http://localhost:3001/posts/byuserId/${id}`).then((response) => {
+        axios.get(`https://full-stack-rolex-d0e7f0626856.herokuapp.com/posts/byuserId/${id}`).then((response) => {
             setListOfPosts(response.data);
         });
     },[]);
